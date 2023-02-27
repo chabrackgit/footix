@@ -22,9 +22,6 @@ class Equipe
     #[ORM\Column(length: 255)]
     private ?string $division = null;
 
-    #[ORM\ManyToOne(inversedBy: 'equipes')]
-    private ?Division $ligue = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -62,18 +59,6 @@ class Equipe
     public function setDivision(string $division): self
     {
         $this->division = $division;
-
-        return $this;
-    }
-
-    public function getLigue(): ?Division
-    {
-        return $this->ligue;
-    }
-
-    public function setLigue(?Division $ligue): self
-    {
-        $this->ligue = $ligue;
 
         return $this;
     }
