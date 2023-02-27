@@ -25,6 +25,9 @@ class Joueur
     #[ORM\Column(length: 255)]
     private ?string $poste = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $nationalite = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Joueur
     public function setPoste(string $poste): self
     {
         $this->poste = $poste;
+
+        return $this;
+    }
+
+    public function getNationalite(): ?string
+    {
+        return $this->nationalite;
+    }
+
+    public function setNationalite(string $nationalite): self
+    {
+        $this->nationalite = $nationalite;
 
         return $this;
     }
