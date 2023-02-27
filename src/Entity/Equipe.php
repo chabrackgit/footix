@@ -32,6 +32,9 @@ class Equipe
         $this->joueurs = new ArrayCollection();
     }
 
+    #[ORM\ManyToOne(inversedBy: 'equipes')]
+    private ?Division $ligue = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,36 +72,6 @@ class Equipe
     public function setDivision(string $division): self
     {
         $this->division = $division;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Joueur>
-     */
-    public function getJoueurs(): Collection
-    {
-        return $this->joueurs;
-    }
-
-    public function addJoueur(Joueur $joueur): self
-    {
-        if (!$this->joueurs->contains($joueur)) {
-            $this->joueurs->add($joueur);
-            $joueur->setEquipe($this);
-        }
-
-        return $this;
-    }
-
-    public function removeJoueur(Joueur $joueur): self
-    {
-        if ($this->joueurs->removeElement($joueur)) {
-            // set the owning side to null (unless already changed)
-            if ($joueur->getEquipe() === $this) {
-                $joueur->setEquipe(null);
-            }
-        }
 
         return $this;
     }
