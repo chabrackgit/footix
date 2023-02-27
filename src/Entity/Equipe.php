@@ -24,17 +24,6 @@ class Equipe
     #[ORM\Column(length: 255)]
     private ?string $division = null;
 
-    #[ORM\OneToMany(mappedBy: 'equipe', targetEntity: Joueur::class)]
-    private Collection $joueurs;
-
-    public function __construct()
-    {
-        $this->joueurs = new ArrayCollection();
-    }
-
-    #[ORM\ManyToOne(inversedBy: 'equipes')]
-    private ?Division $ligue = null;
-
     public function getId(): ?int
     {
         return $this->id;
