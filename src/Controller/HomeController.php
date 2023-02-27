@@ -11,9 +11,15 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'app_home')]
     public function index(): Response
     {
-
+        $prenom = 'imad';
+        $nom = 'ibnoulmalih';
+        $age = 25;
+        $profession = 'dev';
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'prenom' => $prenom,
+            'nom' => $nom,
+            'age' => $age,
+            'prof' => $profession
         ]);
     }
 }
