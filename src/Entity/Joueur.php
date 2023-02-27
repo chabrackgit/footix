@@ -25,6 +25,9 @@ class Joueur
     #[ORM\Column(length: 255)]
     private ?string $poste = null;
 
+    #[ORM\ManyToOne(inversedBy: 'joueurs')]
+    private ?Equipe $equipe = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Joueur
     public function setPoste(string $poste): self
     {
         $this->poste = $poste;
+
+        return $this;
+    }
+
+    public function getEquipe(): ?Equipe
+    {
+        return $this->equipe;
+    }
+
+    public function setEquipe(?Equipe $equipe): self
+    {
+        $this->equipe = $equipe;
 
         return $this;
     }
