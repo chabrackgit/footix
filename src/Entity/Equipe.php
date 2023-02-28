@@ -22,6 +22,9 @@ class Equipe
     #[ORM\Column(length: 255)]
     private ?string $division = null;
 
+    #[ORM\OneToOne(mappedBy: 'equipe', cascade: ['persist', 'remove'])]
+    private ?Entraineur $entraineur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,28 @@ class Equipe
     public function setDivision(string $division): self
     {
         $this->division = $division;
+
+        return $this;
+    }
+
+    public function getEntraineur(): ?Entraineur
+    {
+        return $this->entraineur;
+    }
+
+    public function setEntraineur(?Entraineur $entraineur): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($entraineur === null && $this->entraineur !== null) {
+            $this->entraineur->setEquipe(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($entraineur !== null && $entraineur->getEquipe() !== $this) {
+            $entraineur->setEquipe($this);
+        }
+
+        $this->entraineur = $entraineur;
 
         return $this;
     }

@@ -28,6 +28,9 @@ class Joueur
     #[ORM\Column(length: 255)]
     private ?string $nationalite = null;
 
+    #[ORM\ManyToOne(inversedBy: 'joueurs')]
+    private ?Entraineur $entraineur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +80,18 @@ class Joueur
     public function setPoste(string $poste): self
     {
         $this->poste = $poste;
+
+        return $this;
+    }
+
+    public function getEntraineur(): ?Entraineur
+    {
+        return $this->entraineur;
+    }
+
+    public function setEntraineur(?Entraineur $entraineur): self
+    {
+        $this->entraineur = $entraineur;
 
         return $this;
     }
