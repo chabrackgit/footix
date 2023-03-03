@@ -27,6 +27,9 @@ class Equipe
     #[ORM\OneToOne(mappedBy: 'equipe', cascade: ['persist', 'remove'])]
     private ?Entraineur $entraineur = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $drapeau = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +89,18 @@ class Equipe
         }
 
         $this->entraineur = $entraineur;
+
+        return $this;
+    }
+
+    public function getDrapeau(): ?string
+    {
+        return $this->drapeau;
+    }
+
+    public function setDrapeau(string $drapeau): self
+    {
+        $this->drapeau = $drapeau;
 
         return $this;
     }
