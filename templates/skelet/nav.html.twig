@@ -6,11 +6,10 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+          <li><a href="{{ path('app_home') }}" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="{{ path('app_equipe_index') }}" class="nav-link px-2 text-white">Equipe</a></li>
+          <li><a href="{{ path('app_joueur_index')}}" class="nav-link px-2 text-white">Joueur</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">Entraineur</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -18,8 +17,8 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <a href="" type="button" class="btn btn-outline-light me-2">Se connecter</a>
+          <a href="" type="button" class="btn btn-warning">S'enregistrer</a>
         </div>
       </div>
     </div>
