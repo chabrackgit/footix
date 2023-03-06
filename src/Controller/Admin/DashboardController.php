@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\EquipeController;
+use App\Entity\Entraineur;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -27,6 +28,6 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Entraineur', 'fas fa-list', Entraineur::class);
     }
 }
