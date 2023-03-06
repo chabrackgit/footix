@@ -6,6 +6,7 @@ use App\Entity\Entraineur;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class EntraineurCrudController extends AbstractCrudController
 {
@@ -21,7 +22,7 @@ class EntraineurCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('nationalite'),
-            TextEditorField::new('ancien Joueur'),
+            BooleanField::new('ancien_Joeur'),
         ];
     }
 
